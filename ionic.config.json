@@ -1,0 +1,7 @@
+{
+  "name": "sohaedorm",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
