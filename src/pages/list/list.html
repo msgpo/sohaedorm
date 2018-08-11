@@ -3,18 +3,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>Nearby</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
+  <ion-list class="list list-md">
+	<ion-list-header>
+		Coordinates Tester: {{latitude}}, {{longitude}}
+	</ion-list-header>
+	<ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+		{{item.title}}<br />
+		{{item.note}}
+	</ion-item>
   </ion-list>
 </ion-content>
