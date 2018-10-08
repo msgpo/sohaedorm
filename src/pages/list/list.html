@@ -12,9 +12,9 @@
 	<ion-list-header>
 		Coordinates Tester: {{latitude}}, {{longitude}}
 	</ion-list-header>
-	<ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-		{{item.title}}<br />
-		{{item.note}}
+	<ion-item *ngFor="let dorm of items" (click)="itemTapped($event, dorm)">
+		{{dorm.dorm_name}}<br />
+		{{dorm.distance}}
 	</ion-item>
   </ion-list>
 </ion-content>

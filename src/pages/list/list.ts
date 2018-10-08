@@ -11,22 +11,30 @@ import { ItemDetailsPage } from '../item-details/item-details';
   templateUrl: 'list.html'
 })
 export class ListPage {
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  icons: any[];
+  items: Array<{id: number, dorm_name: string, dorm_type: string, distance: string}>;
   latitude: number
   longitude: number
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation) {
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+    this.icons = [
+    {
+        "id": 1,
+        "dorm_name": "Cove\u0027s Boarding House",
+        "dorm_type": "coed",
+        "distance": "48.3333992576802"
+    },
+    {
+        "id": 2,
+        "dorm_name": "Very Suspicious Supermarket",
+        "dorm_type": "female",
+        "distance": "9600.24302202471"
+    }
+];
 
     this.items = [];
-    for(let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
+    for(let i = 0; i < this.icons.length; i++) {
+      this.items.push(this.icons[i]);
     }
 	
 	let watch = this.geolocation.watchPosition();
@@ -38,9 +46,9 @@ export class ListPage {
   }
 
   itemTapped(event, item) {
-    this.navCtrl.push(ItemDetailsPage, {
-      item: item
-    });
+    //this.navCtrl.push(ItemDetailsPage, {
+    //  item: item
+    //});
   }
   
   refreshButton(event) {
